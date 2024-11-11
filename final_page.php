@@ -50,6 +50,7 @@ $income = isset($_POST['income']) ? (float)$_POST['income'] : 0;
 $age = isset($_POST['age']) ? (float)$_POST['age'] : 0;
 $calculatedTax = calculateTax($income,$age);
 $calculatedTaxMonthly = $calculatedTax / 12;
+$calculatedTaxMonthly = number_format($calculatedTaxMonthly,2);
 
 ?>
 
@@ -143,6 +144,12 @@ $calculatedTaxMonthly = $calculatedTax / 12;
     top: 180px;
     z-index: 6;
   }
+  #number_income_tax{
+    position: absolute; /* Allows you to move it freely */
+    right: 380px; /* Distance from the top of the page */
+    top: 120px;
+    z-index: 6;
+  }
   #white_line{
     position: absolute; /* Allows you to move it freely */
     right: 110px; /* Distance from the top of the page */
@@ -205,12 +212,17 @@ $calculatedTaxMonthly = $calculatedTax / 12;
     </style>
 </head>
 <body>
+    <form action="index.php" method="GET">
     <button class="button" ><span style="font-size: 18px;"> Recalculate</span></button>
+    </form>
     <div id="text_bubble" style="color:#FFFFFF; font-size:18px">
         Touch down.
     </div>
     <div id="text_income_tax" style="color:#FFFFFF; font-size:18px">
-        <?php echo "Income tax monthly: R$calculatedTaxMonthly" ?>
+        Income tax monthly: 
+    </div>
+    <div id="number_income_tax" style="color:#FFFFFF; font-size:18px">
+        <?php echo "R$calculatedTaxMonthly" ?>
     </div>
     <div id="text_net_salary" style="color:#FFFFFF; font-size:18px">
         Your net salary:
