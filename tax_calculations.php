@@ -45,17 +45,22 @@ function calculateTax($monthlyIncome, $age) {
             }
         }
     }
-
-    echo"$rebate\n";
     // Apply rebate
     $tax -= $rebate;
-    echo"$tax\n";
+    
     
     return max($tax, 0); // Ensure tax is not negative
-        }
+}
 
-    $income = 25000;
-    $age = 24;
-    $calculatedTax = calculateTax($income,$age);
-    $calculatedTaxMonthly = $calculatedTax / 12;
-    echo "Calculated tax monthly: R{$calculatedTaxMonthly}\n";
+$income = isset($_POST['income']) ? (float)$_POST['income'] : 0;
+$age = isset($_POST['age']) ? (float)$_POST['age'] : 0;
+$calculatedTax = calculateTax($income,$age);
+$calculatedTaxMonthly = $calculatedTax / 12;
+    
+print($calculatedTax);
+print($calculatedTaxMonthly);
+
+
+echo "Annual Tax: " . number_format($calculatedTax, 2) . "<br>";
+echo "Monthly Tax: " . number_format($calculatedTaxMonthly, 2);
+   

@@ -229,34 +229,32 @@
 </head>
 <body>
     <h1 style="text-align: center" >Springbok Tax Calculator</h1>
-    <div class="form-container">
-        <label>How old are you?</label>
+    <form action="final_page.php" method="POST" class="form-container">        <label>How old are you?</label>
         <div class="spacer"></div> 
         <div>
             <div class="radio-wrapper">
                 <label class="container">Under 65
-                <input type="radio" checked="checked" name="radio">
+                <input type="radio" checked="checked" name="radio" value="under_65">
                 <span class="checkmark"></span>
                 </label>
             </div>
             <div class="radio-wrapper">
                 <label class="container">Between 65 and 75
-                <input type="radio" name="radio">
+                <input type="radio" name="radio" value="65_to_75">
                 <span class="checkmark"></span>
                 </label>
             </div>
             <div class="radio-wrapper">
                 <label class="container">Over 75
-                <input type="radio" name="radio">
+                <input type="radio" name="radio" value="over_75">
                 <span class="checkmark"></span>
                 </label>
             </div>
-
         </div>
         <div class="spacer"></div>
         <div class="spacer"></div>
 
-
+   
         <label style="font-size: 15px;" for="income">How much do you earn <strong>monthly</strong>?</label>
         <input type="text" id="income" name="income" required>
 
@@ -264,7 +262,8 @@
         <div class="spacer"></div>
         <div class="spacer"></div>
 
-        <button class="button" style="vertical-align:middle"><span style="font-size: 18px;">Calculate </span></button>
+        <button type="submit"class="button" style="vertical-align:middle"><span style="font-size: 18px;">Calculate </span></button>
+    </form>
     </div>
     <img id="bok_up" class="custom-image" src="Resources/Images/bok_up.png">
     <img id="rec_mid" class="custom-image" src="Resources/Images/rec_mid.png">
