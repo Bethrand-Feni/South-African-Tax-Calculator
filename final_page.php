@@ -50,8 +50,10 @@ $income = isset($_POST['income']) ? (float)$_POST['income'] : 0;
 $age = isset($_POST['age']) ? (float)$_POST['age'] : 0;
 $calculatedTax = calculateTax($income,$age);
 $calculatedTaxMonthly = $calculatedTax / 12;
-$calculatedTaxMonthly = number_format($calculatedTaxMonthly,2);
+$netSalaryMonthly = $income - $calculatedTaxMonthly;
 
+$calculatedTaxMonthly = number_format($calculatedTaxMonthly,2);
+$netSalaryMonthly = number_format($netSalaryMonthly,2);
 ?>
 
 
@@ -218,17 +220,17 @@ $calculatedTaxMonthly = number_format($calculatedTaxMonthly,2);
     <div id="text_bubble" style="color:#FFFFFF; font-size:18px">
         Touch down.
     </div>
-    <div id="text_income_tax" style="color:#FFFFFF; font-size:18px">
+    <div id="text_income_tax" style="color:#FFFFFF; font-size:18px; font-weight: bold;">
         Income tax monthly: 
     </div>
     <div id="number_income_tax" style="color:#FFFFFF; font-size:18px">
         <?php echo "R$calculatedTaxMonthly" ?>
     </div>
-    <div id="text_net_salary" style="color:#FFFFFF; font-size:18px">
+    <div id="text_net_salary" style="color:#FFFFFF; font-size:18px; font-weight: bold;">
         Your net salary:
     </div>
     <div id="number_net_salary" style="color:#FFFFFF; font-size:18px">
-        R10000
+        <?php echo "R$netSalaryMonthly" ?>
     </div>
 
     <img id="bok_jump" class="custom-image" src="Resources/Images/springbok_jumping.png">
