@@ -231,7 +231,7 @@
     <h1 style="text-align: center" >Springbok Tax Calculator</h1>
     <div class="form-container">
         <label>How old are you?</label>
-        <div class="spacer"></div>
+        <div class="spacer"></div> 
         <div>
             <div class="radio-wrapper">
                 <label class="container">Under 65
