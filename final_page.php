@@ -1,4 +1,6 @@
 <?php
+
+
 function calculateTax($monthlyIncome, $age) {
     // Define tax brackets and rates for 2025
 $brackets = [
@@ -15,9 +17,9 @@ $primaryRebate = 17235;
 $secondaryRebate = 9444;
 $tertiaryRebate = 3145;
 
-if ($age < 65) {
+if ($age == 1) {
 $rebate = $primaryRebate;
-} elseif ($age < 75) {
+} elseif ($age == 2) {
 $rebate = $primaryRebate + $secondaryRebate;
 } else {
 $rebate = $primaryRebate + $secondaryRebate + $tertiaryRebate;
@@ -46,8 +48,8 @@ $tax -= $rebate;
 return max($tax, 0); // Ensure tax is not negative
 }
 
-$income = isset($_POST['income']) ? (float)$_POST['income'] : 0;
-$age = isset($_POST['age']) ? (float)$_POST['age'] : 0;
+$income = isset($_POST['income']) ? (float)str_replace(' ', '' ,$_POST['income']) : 0;
+$age = isset($_POST['age']) ? (int)$_POST['age'] : 0;
 $calculatedTax = calculateTax($income,$age);
 $calculatedTaxMonthly = $calculatedTax / 12;
 $netSalaryMonthly = $income - $calculatedTaxMonthly;
@@ -124,33 +126,45 @@ $netSalaryMonthly = number_format($netSalaryMonthly,2);
   }
   #text_bubble{
     position: absolute; /* Allows you to move it freely */
-    bottom: 330px; /* Distance from the top of the page */
+    bottom: 325px; /* Distance from the top of the page */
     left: 550px;
     z-index: 6;
+    color:#FFFFFF; 
+    font-size:18px
   }
   #text_income_tax{
     position: absolute; /* Allows you to move it freely */
-    right: 360px; /* Distance from the top of the page */
-    top: 100px;
+    right: 350px; /* Distance from the top of the page */
+    top: 90px;
     z-index: 6;
+    color:#FFFFFF; 
+    font-size:19px; 
+    font-weight: bold;
   }
   #text_net_salary{
     position: absolute; /* Allows you to move it freely */
-    right: 400px; /* Distance from the top of the page */
+    right: 390px; /* Distance from the top of the page */
     top: 160px;
     z-index: 6;
+    color:#FFFFFF; 
+    font-size:19px; 
+    font-weight: bold;
   }
   #number_net_salary{
     position: absolute; /* Allows you to move it freely */
-    right: 450px; /* Distance from the top of the page */
-    top: 180px;
+    right: 425px; /* Distance from the top of the page */
+    top: 190px;
     z-index: 6;
+    color:#FFFFFF; 
+    font-size:18px
   }
   #number_income_tax{
     position: absolute; /* Allows you to move it freely */
-    right: 380px; /* Distance from the top of the page */
+    right: 435px; /* Distance from the top of the page */
     top: 120px;
     z-index: 6;
+    color:#FFFFFF; 
+    font-size:18px
   }
   #white_line{
     position: absolute; /* Allows you to move it freely */
@@ -166,7 +180,7 @@ $netSalaryMonthly = number_format($netSalaryMonthly,2);
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        border-radius: 25px;
+        border-radius: 22px;
         background-color: #A98B41;
         border: none;
         color: #FFFFFF;
@@ -217,21 +231,17 @@ $netSalaryMonthly = number_format($netSalaryMonthly,2);
     <form action="index.php" method="GET">
     <button class="button" ><span style="font-size: 18px;"> Recalculate</span></button>
     </form>
-    <div id="text_bubble" style="color:#FFFFFF; font-size:18px">
+    <div id="text_bubble">
         Touch down.
     </div>
-    <div id="text_income_tax" style="color:#FFFFFF; font-size:18px; font-weight: bold;">
+    <div id="text_income_tax">
         Income tax monthly: 
     </div>
-    <div id="number_income_tax" style="color:#FFFFFF; font-size:18px">
-        <?php echo "R$calculatedTaxMonthly" ?>
-    </div>
-    <div id="text_net_salary" style="color:#FFFFFF; font-size:18px; font-weight: bold;">
+    <?php echo "<div id ='number_income_tax'>" . "R{$calculatedTaxMonthly}" . "</div>" ?>
+    <div id="text_net_salary">
         Your net salary:
     </div>
-    <div id="number_net_salary" style="color:#FFFFFF; font-size:18px">
-        <?php echo "R$netSalaryMonthly" ?>
-    </div>
+    <?php echo "<div id ='number_net_salary'>" . "R{$netSalaryMonthly}" . "</div>" ?>
 
     <img id="bok_jump" class="custom-image" src="Resources/Images/springbok_jumping.png">
     <img id="rec_gold" class="custom-image" src="Resources/Images/gold_rectangle.png">
