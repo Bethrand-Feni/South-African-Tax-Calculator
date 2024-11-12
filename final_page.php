@@ -58,7 +58,64 @@ $calculatedTaxMonthly = number_format($calculatedTaxMonthly,2);
 $netSalaryMonthly = number_format($netSalaryMonthly,2);
 ?>
 
+<?php
+$financialTips = [
+  "Mark tax and credit dates like doctor visits!",
+  "Pay off high-interest debts first and find better savings accounts.",
+  "Track your net worth to see financial progress.",
+  "Budget for your financial goals.",
+  "Try a cash-only diet to curb overspending.",
+  "Review finances for one minute daily.",
+  "Save 20% of your income for savings and debt.",
+  "Budget 30% of income for fun and lifestyle.",
+  "Craft a vision board to stay motivated.",
+  "Set specific, measurable financial goals.",
+  "Use a spending mantra to guide purchases.",
+  "Take control of finances as an act of self-love.",
+  "Set short-term money goals for motivation.",
+  "Think positively about money.",
+  "Stay financially fit by working out.",
+  "Appreciate your current belongings.",
+  "Partner with a money buddy for support.",
+  "Negotiate salary—let the employer go first.",
+  "Discuss more than just pay—ask for perks.",
+  "Don’t overlook unemployment benefits.",
+  "Highlight your value when negotiating pay.",
+  "Start by paying off smaller debts for confidence.",
+  "Avoid cosigning loans to protect credit.",
+  "Apply for FAFSA to get financial aid.",
+  "Choose federal student loans for better rates.",
+  "Ask about flexible loan repayment options.",
+  "Keep mortgage payments under 28% of income.",
+  "Evaluate purchases by cost-per-use.",
+  "Invest in experiences over material things.",
+  "Shop alone to avoid impulse buys.",
+  "Buy what reflects who you truly are.",
+  "Skip overdraft protection to avoid temptation.",
+  "Start saving as soon as possible.",
+  "Let your retirement fund grow—don’t cash out early.",
+  "Get the full 401(k) match from your employer.",
+  "Increase savings automatically with raises.",
+  "Regularly check your credit report and score.",
+  "Keep credit utilization under 30%.",
+  "Use secured credit cards to rebuild credit.",
+  "Consider additional life insurance beyond employer coverage.",
+  "Get renters insurance for extra protection.",
+  "Include savings in your monthly budget.",
+  "Keep savings in a separate account to avoid spending.",
+  "Open a savings account at a different bank to limit transfers.",
+  "Automate savings with direct deposit.",
+  "Explore credit unions for better rates.",
+  "Use savings for true emergencies only.",
+  "Invest excess savings once you have enough for emergencies.",
+  "Avoid high fees—choose low-cost funds.",
+  "Rebalance investments annually to stay on track."
+];
 
+$randomTipsKey = array_rand($financialTips);
+$randomTips = $financialTips[$randomTipsKey];
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -88,11 +145,11 @@ $netSalaryMonthly = number_format($netSalaryMonthly,2);
             z-index: 7; 
         }
         #bok_jump {
-    width: 375px;
-    height: 370px;
+    width: 28vw;
+    height: 47vh;
     position: absolute;
-    bottom: 10px;
-    right: 350px;
+    bottom: 0.1%;
+    right: 22%;
     z-index: 1;
         }
         #rec_gold{
@@ -113,11 +170,11 @@ $netSalaryMonthly = number_format($netSalaryMonthly,2);
       z-index: 2;
   }
   #speech_bubble{
-      width: 450px;
-      height: 350px;
+      width: 34vw;
+      height: 47vh;
       position: absolute;
-      bottom: 160px;
-      right: 580px;
+      bottom: 18%;
+      left: 28%;
       z-index: 4;
   }
   #input_form{
@@ -125,12 +182,19 @@ $netSalaryMonthly = number_format($netSalaryMonthly,2);
       z-index: 5;
   }
   #text_bubble{
+    width: 15vw;  
+    height: 20vh;
+    padding: 10px;
+    align-items: center;
     position: absolute; /* Allows you to move it freely */
-    bottom: 325px; /* Distance from the top of the page */
-    left: 550px;
+    bottom: 24%; /* Distance from the top of the page */
+    left: 35%;
     z-index: 6;
-    color:#FFFFFF; 
-    font-size:18px
+    color:white; 
+    font-size:1.4vw;
+    word-wrap: break-word;
+    white-space: normal;
+
   }
   #text_income_tax{
     position: absolute; /* Allows you to move it freely */
@@ -221,6 +285,14 @@ $netSalaryMonthly = number_format($netSalaryMonthly,2);
         opacity: 1;
         right: 0;
     }
+    
+    @media (max-width: 1000px) {
+    
+    .button{
+        top: 35%;
+    }
+    
+  }
 
     .larger-text {
       font-size: 24px; 
@@ -231,9 +303,7 @@ $netSalaryMonthly = number_format($netSalaryMonthly,2);
     <form action="index.php" method="GET">
     <button class="button" ><span style="font-size: 18px;"> Recalculate</span></button>
     </form>
-    <div id="text_bubble">
-        Touch down.
-    </div>
+    <?php echo "<div id='text_bubble'>" . "{$randomTips}" ."</div>" ?>
     <div id="text_income_tax">
         Income tax monthly: 
     </div>

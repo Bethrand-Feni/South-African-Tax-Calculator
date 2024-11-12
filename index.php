@@ -1,61 +1,4 @@
-<?php
-$financialTips = [
-  "Mark tax and credit dates like doctor visits!",
-  "Pay off high-interest debts first and find better savings accounts.",
-  "Track your net worth to see financial progress.",
-  "Budget for your financial goals.",
-  "Try a cash-only diet to curb overspending.",
-  "Review finances for one minute daily.",
-  "Save 20% of your income for savings and debt.",
-  "Budget 30% of income for fun and lifestyle.",
-  "Craft a vision board to stay motivated.",
-  "Set specific, measurable financial goals.",
-  "Use a spending mantra to guide purchases.",
-  "Take control of finances as an act of self-love.",
-  "Set short-term money goals for motivation.",
-  "Think positively about money.",
-  "Stay financially fit by working out.",
-  "Appreciate your current belongings.",
-  "Partner with a money buddy for support.",
-  "Negotiate salary—let the employer go first.",
-  "Discuss more than just pay—ask for perks.",
-  "Don’t overlook unemployment benefits.",
-  "Highlight your value when negotiating pay.",
-  "Start by paying off smaller debts for confidence.",
-  "Avoid cosigning loans to protect credit.",
-  "Apply for FAFSA to get financial aid.",
-  "Choose federal student loans for better rates.",
-  "Ask about flexible loan repayment options.",
-  "Keep mortgage payments under 28% of income.",
-  "Evaluate purchases by cost-per-use.",
-  "Invest in experiences over material things.",
-  "Shop alone to avoid impulse buys.",
-  "Buy what reflects who you truly are.",
-  "Skip overdraft protection to avoid temptation.",
-  "Start saving as soon as possible.",
-  "Let your retirement fund grow—don’t cash out early.",
-  "Get the full 401(k) match from your employer.",
-  "Increase savings automatically with raises.",
-  "Regularly check your credit report and score.",
-  "Keep credit utilization under 30%.",
-  "Use secured credit cards to rebuild credit.",
-  "Consider additional life insurance beyond employer coverage.",
-  "Get renters insurance for extra protection.",
-  "Include savings in your monthly budget.",
-  "Keep savings in a separate account to avoid spending.",
-  "Open a savings account at a different bank to limit transfers.",
-  "Automate savings with direct deposit.",
-  "Explore credit unions for better rates.",
-  "Use savings for true emergencies only.",
-  "Invest excess savings once you have enough for emergencies.",
-  "Avoid high fees—choose low-cost funds.",
-  "Rebalance investments annually to stay on track."
-];
 
-$randomTipsKey = array_rand($financialTips);
-$randomTips = $financialTips[$randomTipsKey];
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -70,9 +13,9 @@ $randomTips = $financialTips[$randomTipsKey];
             background-repeat: no-repeat; 
             background-position: center;
             display: flex;
-            justify-content: center; /* Horizontal centering */
-            align-items: center;     /* Vertical centering */
-            height: 100vh;           /* Full viewport height */
+            justify-content: center; 
+            align-items: center;     
+            height: 100vh;   
             margin: 0;
         }
         h1 {
@@ -85,35 +28,23 @@ $randomTips = $financialTips[$randomTipsKey];
             z-index: 7; 
         }
         #bok_up {
-    width: 255px;
-    height: 250px;
+          width: 23vw;
+    height: 38vh;
     position: absolute;
-    bottom: 10px;
-    right: 13px;
-    z-index: 3;
-        }
-        #rec_mid{
-    width: 1100px;
-    height: 650px;
-    position: absolute;
-    justify-content: center;
+    bottom: 1%;
+    right: 0.1%;
     z-index: 1;
-    border-radius: 35px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Adds a soft shadow */
         }
-        
         #grass{
             position: fixed;
             bottom: 0;
-            /* left: 50%;
-            translate: translateX(-50%); */
             width: 100%;
             height: auto;
             z-index: 2;
         }
         #speech_bubble{
-            width: 500px;
-            height: 350px;
+            width: 36.6vw;
+            height: 45.7vh;
             position: absolute;
             bottom: 140px;
             right: 170px;
@@ -128,6 +59,13 @@ $randomTips = $financialTips[$randomTipsKey];
             border: 2px solid #D3D3D3;
 
         }
+        .speech-bubble{
+          width: 36.6vw;
+          height: 45.7vh;
+          position: absolute;
+          bottom: 140px;
+          right: 170px;
+        }
         .form-container {
                 left: 200px;
                 top: 100px;
@@ -137,7 +75,6 @@ $randomTips = $financialTips[$randomTipsKey];
                 z-index: 5;
                 position: absolute;
             }
-        /* Input and label styling */
         .form-container label {
             font-size: 14px;
             margin-top: 10px;
@@ -175,6 +112,14 @@ $randomTips = $financialTips[$randomTipsKey];
   -ms-user-select: none;
   user-select: none;
 }
+.white-box{
+          width: 75vw;
+          height: 80vh;
+          background-color: white;
+          border-radius: 35px;
+          box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+          margin: 20px auto; 
+        }
 
 /* Hide the browser's default radio button */
 .container input {
@@ -218,34 +163,34 @@ $randomTips = $financialTips[$randomTipsKey];
   display: block;
 }
 
-/* Style the indicator (dot/circle) */
 .container .checkmark:after {
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
+  top: 50%;
+  left: 50%;
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background: green;
-  transform: translate(-50%, -50%); /* Shift it back to center */
+  transform: translate(-50%, -50%);
 }
+
 .radio-wrapper {
-            display: inline-flex; /* Makes each radio wrapper align horizontally */
-            align-items: center;  /* Centers items within each wrapper */
-            margin-right: 200px;   /* Spacing between each radio-wrapper */
+            display: inline-flex; 
+            align-items: center;  
+            margin-right: 200px;   
 }
 
 .spacer {
-    height: 40px; /* Adjust height for desired spacing */
+    height: 40px; 
 }
 
 .spacer-half {
-    height: 20px; /* Adjust height for desired spacing */
+    height: 20px; 
 }
 
 
 .button {
-  display: inline-flex; /* Use inline-flex for a button with inline properties */
-  align-items: center; /* Vertically centers the content */
+  display: inline-flex; 
+  align-items: center; 
   justify-content: center; 
   border-radius: 22px;
   background-color: #A98B41;
@@ -305,53 +250,60 @@ $randomTips = $financialTips[$randomTipsKey];
     line-height: 1.2; /* Adjust line height for readability */
     white-space: normal;
   }
+  @media (max-width: 1200px) {
+    #cycling_description,
+    #speech_bubble{
+      display: none;
+    }
+    
+  }
 
     </style>
 </head>
 <body>
     <h1 style="text-align: center" >Springbok Tax Calculator</h1>
-    <form action="final_page.php" method="POST" class="form-container">        
-      <label style="font-size: 16px;">How old are you?</label>
-        <div class="spacer"></div> 
-        <div>
-            <div class="radio-wrapper">
-                <label class="container">Under 65
-                <input type="radio" checked="checked" name="age" value="1">
-                <span class="checkmark"></span>
-                </label>
-            </div>
-            <div class="radio-wrapper">
-                <label class="container">Between 65 and 75
-                <input type="radio" name="age" value="2">
-                <span class="checkmark"></span>
-                </label>
-            </div>
-            <div class="radio-wrapper">
-                <label class="container">Over 75
-                <input type="radio" name="age" value="3">
-                <span class="checkmark"></span>
-                </label>
-            </div>
-        </div>
-        <div class="spacer"></div>
-        <div class="spacer"></div>
+    <div class="white-box">
+      <form action="final_page.php" method="POST" class="form-container">        
+        <label style="font-size: 16px;">How old are you?</label>
+          <div class="spacer"></div> 
+          <div>
+              <div class="radio-wrapper">
+                  <label class="container">Under 65
+                  <input type="radio" checked="checked" name="age" value="1">
+                  <span class="checkmark"></span>
+                  </label>
+              </div>
+              <div class="radio-wrapper">
+                  <label class="container">Between 65 and 75
+                  <input type="radio" name="age" value="2">
+                  <span class="checkmark"></span>
+                  </label>
+              </div>
+              <div class="radio-wrapper">
+                  <label class="container">Over 75
+                  <input type="radio" name="age" value="3">
+                  <span class="checkmark"></span>
+                  </label>
+              </div>
+          </div>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
 
-   
-        <label style="font-size: 16px;" for="income">How much do you earn <strong>monthly</strong>?</label>
-        <input type="number" id="input_form" name="income" required>
+    
+          <label style="font-size: 16px;" for="income">How much do you earn <strong>monthly</strong>?</label>
+          <input type="number" id="input_form" name="income" required>
 
-        <div class="spacer"></div>
-        <div class="spacer"></div>
-        <div class="spacer"></div>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
 
-        <button type="submit"class="button" style="vertical-align:middle"><span style="font-size: 18px;">Calculate </span></button>
-    </form>
+          <button type="submit"class="button" style="vertical-align:middle"><span style="font-size: 18px;">Calculate </span></button>
+      </form>
     </div>
     <img id="bok_up" class="custom-image" src="Resources/Images/bok_up.png">
-    <img id="rec_mid" class="custom-image" src="Resources/Images/rec_mid.png">
     <img id="grass" class="custom-image" src="Resources/Images/grass.png">
-    <img id="speech_bubble" class="custom-image" src="Resources/Images/speech_bubble.png">
-    <?php echo "<div id ='cycling_description'>" . "{$randomTips}" . "</div>" ?>
+    <!-- <img id="speech_bubble" class="custom-image" src="Resources/Images/speech_bubble.png"> -->
+
   
 
 </body>
