@@ -48,7 +48,7 @@ $tax -= $rebate;
 return max($tax, 0); // Ensure tax is not negative
 }
 
-$income = isset($_POST['income']) ? (float)str_replace(' ', '' ,$_POST['income']) : 0;
+$income = isset($_POST['income']) ? (float)str_replace([' ','-'], '' ,$_POST['income']) : 0;
 $age = isset($_POST['age']) ? (int)$_POST['age'] : 0;
 $calculatedTax = calculateTax($income,$age);
 $calculatedTaxMonthly = $calculatedTax / 12;
@@ -197,7 +197,7 @@ $randomTips = $financialTips[$randomTipsKey];
 
   }
   #text_income_tax{
-    position: absolute; /* Allows you to move it freely */
+    position: relative; /* Allows you to move it freely */
     right: 350px; /* Distance from the top of the page */
     top: 90px;
     z-index: 6;
@@ -206,7 +206,7 @@ $randomTips = $financialTips[$randomTipsKey];
     font-weight: bold;
   }
   #text_net_salary{
-    position: absolute; /* Allows you to move it freely */
+    position: relative; /* Allows you to move it freely */
     right: 390px; /* Distance from the top of the page */
     top: 160px;
     z-index: 6;
@@ -215,7 +215,7 @@ $randomTips = $financialTips[$randomTipsKey];
     font-weight: bold;
   }
   #number_net_salary{
-    position: absolute; /* Allows you to move it freely */
+    position: relative; /* Allows you to move it freely */
     right: 425px; /* Distance from the top of the page */
     top: 190px;
     z-index: 6;
@@ -223,7 +223,7 @@ $randomTips = $financialTips[$randomTipsKey];
     font-size:18px
   }
   #number_income_tax{
-    position: absolute; /* Allows you to move it freely */
+    position: relative; /* Allows you to move it freely */
     right: 435px; /* Distance from the top of the page */
     top: 120px;
     z-index: 6;
@@ -231,11 +231,69 @@ $randomTips = $financialTips[$randomTipsKey];
     font-size:18px
   }
   #white_line{
-    position: absolute; /* Allows you to move it freely */
+    position: relative; /* Allows you to move it freely */
     right: 110px; /* Distance from the top of the page */
     top: 150px;
     z-index: 6;
   }
+  @media (max-width: 900px) {
+    #white_line{
+        right: 90px;
+    }
+    #rec_gold{
+       right: 5px;
+       width: 450px;
+    }
+  }
+  .flex-box{
+    width: 450px;
+    height: 200px;
+    position: absolute;
+display: flex;
+justify-content: start;
+align-items: start;
+top: 55px;
+right: 90px;
+z-index: 6;
+flex-direction: column;
+transition: margin-left 0.3s ease;
+        }
+   .flex-items-headings{
+    flex-basis: 150px;
+    padding: 5px;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+   }   
+   .flex-items-non-headings{
+    flex-basis: 150px;
+    padding: 5px;
+    font-size: 16px;
+    color: white;
+   } 
+   .flex-items-line{
+    flex-basis: 150px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+   }   
+   @media (max-width: 900px) {
+    .flex-box{
+        transform: translateX(20%);
+    }
+    .flex-items-line{
+        max-width: 90%;
+    }
+    
+   }
+    .form-container {
+            left: 50px;
+            top: 50px;
+            display: flex;
+            flex-direction: column;
+            z-index: 5;
+            position: absolute;
+        }
 
   .spacer {
           height: 40px; /* Adjust height for desired spacing */
@@ -286,13 +344,18 @@ $randomTips = $financialTips[$randomTipsKey];
         right: 0;
     }
     
-    @media (max-width: 1000px) {
-    
+    @media (max-width: 700px) {
     .button{
         top: 35%;
+        transform: translateX(90%);
     }
-    
   }
+    @media (max-width:500px) {
+        #bok_jump,#speech_bubble,#text_bubble{
+            display: none;
+        }
+        
+    }
 
     .larger-text {
       font-size: 24px; 
@@ -300,24 +363,31 @@ $randomTips = $financialTips[$randomTipsKey];
     </style>
 </head>
 <body>
+    <div class="flex-box">
+        <div class="flex-items-headings">
+            Income tax monthly: 
+        </div>
+        <?php echo "<div class ='flex-items-non-headings'>" . "R{$calculatedTaxMonthly}" . "</div>" ?>
+        <img class="flex-items-line" src="Resources/Images/line_1.png">
+
+        <div class="flex-items-headings">
+            Your net salary:
+        </div>
+        <?php echo "<div class ='flex-items-non-headings'>" . "R{$netSalaryMonthly}" . "</div>" ?>
+    </div>
+
     <form action="index.php" method="GET">
-    <button class="button" ><span style="font-size: 18px;"> Recalculate</span></button>
+        <button class="button" >
+            <span style="font-size: 18px;"> Recalculate</span>
+        </button>
     </form>
+
     <?php echo "<div id='text_bubble'>" . "{$randomTips}" ."</div>" ?>
-    <div id="text_income_tax">
-        Income tax monthly: 
-    </div>
-    <?php echo "<div id ='number_income_tax'>" . "R{$calculatedTaxMonthly}" . "</div>" ?>
-    <div id="text_net_salary">
-        Your net salary:
-    </div>
-    <?php echo "<div id ='number_net_salary'>" . "R{$netSalaryMonthly}" . "</div>" ?>
 
     <img id="bok_jump" class="custom-image" src="Resources/Images/springbok_jumping.png">
     <img id="rec_gold" class="custom-image" src="Resources/Images/gold_rectangle.png">
     <img id="grass" class="custom-image" src="Resources/Images/grass.png">
     <img id="speech_bubble" class="custom-image" src="Resources/Images/speech_bubble.png">
-    <img id="white_line" class="custom-image" src="Resources/Images/line_1.png">
 
 
 </body>

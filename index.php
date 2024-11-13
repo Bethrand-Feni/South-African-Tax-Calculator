@@ -67,8 +67,8 @@
           right: 170px;
         }
         .form-container {
-                left: 200px;
-                top: 100px;
+                left: 50px;
+                top: 50px;
                 display: flex;
                 flex-direction: column;
                 width: 1000px;
@@ -119,6 +119,7 @@
           border-radius: 35px;
           box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
           margin: 20px auto; 
+          position: relative;
         }
 
 /* Hide the browser's default radio button */
@@ -172,11 +173,22 @@
   background: green;
   transform: translate(-50%, -50%);
 }
+.radio-group {
+  display: flex;
+  gap: 10px; /* Spacing between the items */
+  flex-wrap: wrap; /* Allows items to wrap onto a new line */
+}
+
 
 .radio-wrapper {
-            display: inline-flex; 
-            align-items: center;  
-            margin-right: 200px;   
+  flex: 1; /* Takes up equal space for each button */
+  min-width: 150px;   
+}
+
+@media (max-width: 1100px) {
+  .radio-group {
+    flex-direction: column; /* Stack vertically on smaller screens */
+  }
 }
 
 .spacer {
@@ -257,6 +269,21 @@
     }
     
   }
+  @media (max-width: 700px) {
+  #input_form{
+    width: 300px;
+  }
+}
+@media (max-width: 600px) {
+  #bok_up{
+    display: none;
+  }
+  .button{
+    right: 50%;
+    transform: translateX(40%);
+  }
+}
+
 
     </style>
 </head>
@@ -264,10 +291,10 @@
     <h1 style="text-align: center" >Springbok Tax Calculator</h1>
     <div class="white-box">
       <form action="final_page.php" method="POST" class="form-container">        
-        <label style="font-size: 16px;">How old are you?</label>
+        <label style="font-size: 16px;">How <strong>old</strong>  are you?</label>
           <div class="spacer"></div> 
-          <div>
-              <div class="radio-wrapper">
+          <div class="radio-group">
+            <div class="radio-wrapper">
                   <label class="container">Under 65
                   <input type="radio" checked="checked" name="age" value="1">
                   <span class="checkmark"></span>
@@ -285,7 +312,7 @@
                   <span class="checkmark"></span>
                   </label>
               </div>
-          </div>
+          </div> 
           <div class="spacer"></div>
           <div class="spacer"></div>
 
@@ -302,8 +329,6 @@
     </div>
     <img id="bok_up" class="custom-image" src="Resources/Images/bok_up.png">
     <img id="grass" class="custom-image" src="Resources/Images/grass.png">
-    <!-- <img id="speech_bubble" class="custom-image" src="Resources/Images/speech_bubble.png"> -->
-
   
 
 </body>
