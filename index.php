@@ -59,6 +59,9 @@
             border: 2px solid #D3D3D3;
 
         }
+        #income{
+          font-size: 16px;
+        }
         .speech-bubble{
           width: 36.6vw;
           height: 45.7vh;
@@ -283,7 +286,25 @@
     transform: translateX(40%);
   }
 }
+@media (max-width: 470px) {
+  h1{
+    font-size: 1.5em;
+  }
+  .button{
+    right: 50%;
+    transform: translateX(25%);
+  }
+  #income{
+    font-size: 12px;
+  }
+  #input_form{
+    width: 250px;
+  }
+  .form-container{
+    left: 15px;
+  }
 
+}
 
     </style>
 </head>

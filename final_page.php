@@ -350,9 +350,21 @@ transition: margin-left 0.3s ease;
         transform: translateX(90%);
     }
   }
-    @media (max-width:500px) {
+    @media (max-width:450px) {
         #bok_jump,#speech_bubble,#text_bubble{
             display: none;
+        }
+        #rec_gold{
+            width: 365px;
+        }
+        .flex-box{
+            width: 350px;
+            right: 80px;
+        }
+        .button{
+            top: 600px;
+            transform: translateX(38%);
+
         }
         
     }
