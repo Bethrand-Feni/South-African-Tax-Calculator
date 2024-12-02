@@ -355,11 +355,11 @@ transition: margin-left 0.3s ease;
             display: none;
         }
         #rec_gold{
-            width: 365px;
+            width: 350px;
         }
         .flex-box{
             width: 350px;
-            right: 80px;
+            right: 71px;
         }
         .button{
             top: 600px;

@@ -298,10 +298,10 @@
     font-size: 12px;
   }
   #input_form{
-    width: 250px;
+    width: 240px;
   }
   .form-container{
-    left: 15px;
+    left: 10px;
   }
 
 }
